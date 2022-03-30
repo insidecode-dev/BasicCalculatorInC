@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+void func() {
+  
+  char cr;
+  scanf_s("%c", &cr);
+  int a1, b1;
+  printf("Please enter integers : ");
+  scanf_s("%d %d", &a1, &b1);
+  switch (cr) {
+    case '+':
+      printf("%d", a1 + b1);
+      break;
+    case '-':
+      printf("%d", a1 - b1);
+      break;
+    case '*':
+      printf("%d", a1 * b1);
+      break;
+    case '/':
+      if (!b1) {
+        printf("You can't divide zero, do you wanna try again ?y(Yes) n(NO)");
+        char c1;
+        scanf_s(" %c ", &c1);
+        if (c1 == 'y') {
+          func();
+        } else if (c1 == 'n')
+          printf("Thanks for using !!");
+      }
+
+      else
+        printf("%d", a1 / b1);
+      break;
+    default:
+      printf("Your operator is not valid, do you wanna try again ?y(Yes) n(NO)\n");
+      char c1;
+      scanf_s(" %c ", &c1);
+      if (c1 == 'y') {
+        
+        func();
+      } else if (c1 == 'n')
+        printf("Thanks for using !!");
+     
+  }
+}
+
+int main() {
+  func();
+}
